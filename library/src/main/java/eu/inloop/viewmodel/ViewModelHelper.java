@@ -10,7 +10,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 
-public class ViewModelHelper<T extends IView, R extends AbstractViewModel<T>> {
+public class ViewModelHelper<T extends IView, R extends BaseViewModel<T>> {
 
     @Nullable
     private String mScreenId;
@@ -31,7 +31,7 @@ public class ViewModelHelper<T extends IView, R extends AbstractViewModel<T>> {
      */
     public void onCreate(@NonNull Activity activity,
                          @Nullable Bundle savedInstanceState,
-                         @Nullable Class<? extends AbstractViewModel<T>> viewModelClass,
+                         @Nullable Class<? extends BaseViewModel<T>> viewModelClass,
                          @Nullable Bundle arguments) {
         // no viewmodel for this fragment
         if (viewModelClass == null) {

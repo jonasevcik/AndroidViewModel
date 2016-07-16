@@ -12,7 +12,7 @@ import android.support.v4.util.SimpleArrayMap;
  */
 public class ViewModelProvider {
 
-    private final SimpleArrayMap<String, AbstractViewModel<? extends IView>> mViewModelCache;
+    private final SimpleArrayMap<String, BaseViewModel<? extends IView>> mViewModelCache;
 
     public static ViewModelProvider newInstance(@NonNull final FragmentActivity activity) {
         if (activity.getLastCustomNonConfigurationInstance() == null) {
@@ -47,8 +47,8 @@ public class ViewModelProvider {
     @SuppressWarnings("unchecked")
     @NonNull
     public synchronized <T extends IView> ViewModelWrapper<T> getViewModel(final String modelIdentifier,
-                                                                           final @NonNull Class<? extends AbstractViewModel<T>> viewModelClass) {
-        AbstractViewModel<T> instance = (AbstractViewModel<T>) mViewModelCache.get(modelIdentifier);
+                                                                           final @NonNull Class<? extends BaseViewModel<T>> viewModelClass) {
+        BaseViewModel<T> instance = (BaseViewModel<T>) mViewModelCache.get(modelIdentifier);
         if (instance != null) {
             return new ViewModelWrapper<>(instance, false);
         }
@@ -65,10 +65,10 @@ public class ViewModelProvider {
 
     public static class ViewModelWrapper<T extends IView> {
         @NonNull
-        public final AbstractViewModel<T> viewModel;
+        public final BaseViewModel<T> viewModel;
         public final boolean wasCreated;
 
-        private ViewModelWrapper(@NonNull AbstractViewModel<T> mViewModel, boolean mWasCreated) {
+        private ViewModelWrapper(@NonNull BaseViewModel<T> mViewModel, boolean mWasCreated) {
             this.viewModel = mViewModel;
             this.wasCreated = mWasCreated;
         }

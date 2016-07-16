@@ -4,11 +4,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import eu.inloop.viewmodel.AbstractViewModel;
+import eu.inloop.viewmodel.BaseViewModel;
 import eu.inloop.viewmodel.IView;
 import eu.inloop.viewmodel.ViewModelHelper;
 
-public abstract class ViewModelBaseActivity<T extends IView, R extends AbstractViewModel<T>> extends ViewModelBaseEmptyActivity implements IView  {
+public abstract class ViewModelBaseActivity<T extends IView, R extends BaseViewModel<T>> extends ViewModelBaseEmptyActivity implements IView  {
 
     private final ViewModelHelper<T, R> mViewModeHelper = new ViewModelHelper<>();
 

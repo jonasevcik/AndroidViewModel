@@ -6,11 +6,11 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.View;
 
-import eu.inloop.viewmodel.AbstractViewModel;
+import eu.inloop.viewmodel.BaseViewModel;
 import eu.inloop.viewmodel.IView;
 import eu.inloop.viewmodel.ViewModelHelper;
 
-public abstract class ViewModelBaseFragment<T extends IView, R extends AbstractViewModel<T>> extends Fragment implements IView {
+public abstract class ViewModelBaseFragment<T extends IView, R extends BaseViewModel<T>> extends Fragment implements IView {
 
     private final ViewModelHelper<T, R> mViewModeHelper = new ViewModelHelper<>();
 

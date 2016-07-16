@@ -8,10 +8,10 @@ import android.support.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-import eu.inloop.viewmodel.AbstractViewModel;
+import eu.inloop.viewmodel.BaseViewModel;
 import eu.inloop.viewmodel.sample.viewmodel.view.IUserListView;
 
-public class UserListViewModel extends AbstractViewModel<IUserListView> {
+public class UserListViewModel extends BaseViewModel<IUserListView> {
 
     private static final int TOTAL_USERS = 7;
     private List<String> mLoadedUsers;

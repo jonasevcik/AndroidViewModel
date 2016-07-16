@@ -4,10 +4,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import eu.inloop.viewmodel.AbstractViewModel;
+import eu.inloop.viewmodel.BaseViewModel;
 import eu.inloop.viewmodel.IView;
 
-public class SampleArgumentViewModel extends AbstractViewModel<IView> {
+public class SampleArgumentViewModel extends BaseViewModel<IView> {
 
     public static final String ARG_INT_USER_ID = "ARG_INT_USER_ID";
 
