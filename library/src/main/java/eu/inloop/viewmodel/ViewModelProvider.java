@@ -2,8 +2,7 @@ package eu.inloop.viewmodel;
 import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
-
-import java.util.HashMap;
+import android.support.v4.util.SimpleArrayMap;
 
 /**
  * Create and keep this class inside your Activity. Store it
@@ -13,7 +12,7 @@ import java.util.HashMap;
  */
 public class ViewModelProvider {
 
-    private final HashMap<String, AbstractViewModel<? extends IView>> mViewModelCache;
+    private final SimpleArrayMap<String, AbstractViewModel<? extends IView>> mViewModelCache;
 
     public static ViewModelProvider newInstance(@NonNull final FragmentActivity activity) {
         if (activity.getLastCustomNonConfigurationInstance() == null) {
@@ -34,7 +33,7 @@ public class ViewModelProvider {
     }
 
     private ViewModelProvider() {
-        mViewModelCache = new HashMap<>();
+        mViewModelCache = new SimpleArrayMap<>();
     }
 
     public synchronized void remove(String modeIdentifier) {

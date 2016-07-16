@@ -42,10 +42,7 @@ public abstract class AbstractViewModel<T extends IView> {
      *               only in case the system is killed due to low memory
      *               and restored (and {@link #onSaveInstanceState(Bundle)} returned a non-null bundle.
      */
-    @SuppressWarnings("EmptyMethod")
-    public void onCreate(@Nullable Bundle arguments, @Nullable Bundle savedInstanceState) {
-
-    }
+    public abstract void onCreate(@Nullable Bundle arguments, @Nullable Bundle savedInstanceState);
 
     /**
      * This method is an equivalent of {@link Fragment#onViewCreated(View, Bundle)} or {@link Activity#onCreate(Bundle)}.
@@ -66,17 +63,10 @@ public abstract class AbstractViewModel<T extends IView> {
         mView = null;
     }
 
-    @SuppressWarnings("EmptyMethod")
-    public void onSaveInstanceState(@NonNull final Bundle bundle) {
+    public abstract void onSaveInstanceState(@NonNull final Bundle bundle);
 
-    }
+    public abstract void onStop();
 
-    @SuppressWarnings("EmptyMethod")
-    public void onStop() {
-
-    }
-
-    @SuppressWarnings("EmptyMethod")
     public void onStart() {
         if (mView == null && !mBindViewWasCalled) {
             Log.e("AndroidViewModel", this.getClass().getSimpleName() + " - no view associated. You probably did not call setModelView() in your Fragment or Activity");
@@ -87,8 +77,5 @@ public abstract class AbstractViewModel<T extends IView> {
      * Called when there parent fragment or view is already gone and destroyed.
      * This is a good place to empty any planned tasks that are useless without a UI.
      */
-    @SuppressWarnings("EmptyMethod")
-    public void onDestroy() {
-
-    }
+    public abstract void onDestroy();
 }
